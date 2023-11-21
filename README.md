@@ -1,13 +1,14 @@
 # Air
 
-*Air* is an experimental test runner.
+_Air_ is an experimental test runner.
 
 ## Concept
 
 - No test framework is required to write tests
 - No assertion libraries is required to use in tests
 - Any class can be a test suite
-- Any method/function of a test suite which name starts with the "test_" prefix is treated as a test
+- Any method/function of a test suite which name starts with the "test_" prefix
+  is treated as a test
 
 ## Example
 
@@ -46,12 +47,12 @@ Run:
 Error: want = "Foo", got = "Quox"
     at Simple.test_foo (file:///.../src/github.com/soulim/air/testdata/simple.test.js:11:10)
     ...
-````
+```
 
 ## License
 
 Copyright (c) 2023 Alexander Sulim
 
-Air is free software: you can redistribute it and/or modify it under the terms of
-the GNU General Public License as published by the Free Software Foundation,
+Air is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
 either version 3 of the License, or (at your option) any later version.
