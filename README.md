@@ -15,7 +15,7 @@ _Air_ is an experimental test runner.
 Define a test suite:
 
 ```javascript
-import { Runner } from "../runner.js";
+import { Runner } from "../air.js";
 
 // A simple test suite.
 class Simple {

@@ -1,4 +1,4 @@
-import { Runner } from "../runner.js";
+import { Runner } from "../air.js";
 
 class Simple {
   // The test runner ignores this property even if it starts with "test_".
