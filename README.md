@@ -50,7 +50,7 @@ Error: want = "Foo", got = "Quox"
 
 ## License
 
-Copyright (c) 2022 Alexander Sulim
+Copyright (c) 2023 Alexander Sulim
 
 Air is free software: you can redistribute it and/or modify it under the terms of
 the GNU General Public License as published by the Free Software Foundation,
