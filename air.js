@@ -10,11 +10,14 @@ class Runner {
     // TODO: Randomize tests.
 
     properties.forEach(function (property) {
+      // TODO: Make the prefix configurable.
+      // TODO: Change the prefix to be "test" (no underscore).
       if (!property.startsWith("test_")) return;
 
       let descriptor = Object.getOwnPropertyDescriptor(prototype, property);
 
       if (typeof (descriptor.value) !== "function") return;
+      // TODO: Add support for async functions.
 
       try {
         descriptor.value.call(suite);
