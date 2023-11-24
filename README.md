@@ -58,7 +58,7 @@ Error: want = "Foo", got = "Quox"
     ...
 ```
 
-# Name
+## Name
 
 Air is something we barely notice and never learn how use. We just breathe.
 
