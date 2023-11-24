@@ -60,7 +60,7 @@ Error: want = "Foo", got = "Quox"
 
 ## Name
 
-Air is something we barely notice and never learn how use. We just breathe.
+Air is something we barely notice and never learn how to use. We just breathe.
 
 ## License
 
