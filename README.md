@@ -4,11 +4,18 @@ _Air_ is an experimental test runner.
 
 ## Concept
 
-- No test framework is required to write tests
-- No assertion libraries is required to use in tests
-- Any class can be a test suite
-- Any method/function of a test suite which name starts with the "test_" prefix
-  is treated as a test
+- No test framework is required to write tests.
+- No assertion libraries is required to use in tests.
+- Any class can be a test suite.
+- Any method of a test suite with its name starting with the `test_` prefix is
+  treated as a test.
+
+Goals:
+
+- No need to bring and maintain yet another dependency into your project.
+- No need to learn a domain-specific language of any testing framework.
+- No need to switch mental context between writing code and expressing tests for
+  that code in the language of any testing framework.
 
 ## Example
 
@@ -19,10 +26,12 @@ import { Runner } from "../air.js";
 
 // A simple test suite.
 class Simple {
-  // The test runner ignores this property even if it starts with "test_".
+  // The test runner ignores this property even if its name starts with
+  // the "test_" prefix.
   get test_getter() {}
 
-  // The test runner treats this function as a test.
+  // The test runner treats this method as a test because its name starts
+  // with the expected prefix.
   test_foo() {
     let exp = "Foo";
     let act = "Quox";
@@ -48,6 +57,10 @@ Error: want = "Foo", got = "Quox"
     at Simple.test_foo (file:///.../src/github.com/soulim/air/testdata/simple.test.js:11:10)
     ...
 ```
+
+# Name
+
+Air is something we barely notice and never learn how use. We just breathe.
 
 ## License
 
