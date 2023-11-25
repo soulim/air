@@ -1,13 +1,29 @@
-import { Runner } from "./air.js";
+import { Randomizer, Runner } from "./air.js";
 
-// A test suite to run a self-check on Runner.
-class Suite {
+// TestRandomizer implements the same interface as Randomizer,
+// but allows to watch method calls.
+class TestRandomizer extends Randomizer {
+  shuffled = 0;
+
+  shuffle(collection) {
+    this.shuffled += 1;
+
+    return super.shuffle(collection);
+  }
+}
+
+// TestSuite is a test suite to perform self-checks on Runner.
+class TestSuite {
   constructor() {
     this.runned = new Array();
   }
 
-  test_sync_func() {
-    this.runned.push("test_sync_func");
+  test_sync_alpha_func() {
+    this.runned.push("test_sync_alpha_func");
+  }
+
+  test_sync_beta_func() {
+    this.runned.push("test_sync_beta_func");
   }
 
   get test_getter_func() {
@@ -27,13 +43,26 @@ class Suite {
   }
 }
 
-let suite = new Suite();
+let suite = new TestSuite();
+let randomizer = new TestRandomizer();
 
 let runner = new Runner();
+runner.randomizer = randomizer;
+
 runner.run(suite);
 
+// Runner shuffles test methods before calling them.
+if (randomizer.shuffled === 0) {
+  throw new Error(
+    `expected at least one call to the randomizer, but got ${randomizer.shuffled}`,
+  );
+}
+
 // Methods with names starting with the "test_" prefix must be treated as tests.
-let exp = ["test_sync_func"];
+let exp = [
+  "test_sync_alpha_func",
+  "test_sync_beta_func",
+];
 
 if (suite.runned.length !== exp.length) {
   throw new Error(
